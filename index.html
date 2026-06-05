@@ -1,297 +1,355 @@
-```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IILM Connect</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>IILM Connect</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+            rel="stylesheet"
+        />
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Poppins", sans-serif;
+            }
 
-body{
-    background:#050816;
-    color:white;
-    overflow-x:hidden;
-}
+            body {
+                background: #050816;
+                color: white;
+                overflow-x: hidden;
+            }
 
-.bg{
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:-1;
-}
+            .bg {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
 
-.blob{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(90px);
-    opacity:.4;
-    animation:float 8s infinite ease-in-out;
-}
+            .blob {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(90px);
+                opacity: 0.4;
+                animation: float 8s infinite ease-in-out;
+            }
 
-.blob1{
-    width:300px;
-    height:300px;
-    background:#ff0080;
-    top:10%;
-    left:10%;
-}
+            .blob1 {
+                width: 300px;
+                height: 300px;
+                background: #ff0080;
+                top: 10%;
+                left: 10%;
+            }
 
-.blob2{
-    width:350px;
-    height:350px;
-    background:#7c3aed;
-    right:10%;
-    top:20%;
-}
+            .blob2 {
+                width: 350px;
+                height: 350px;
+                background: #7c3aed;
+                right: 10%;
+                top: 20%;
+            }
 
-.blob3{
-    width:250px;
-    height:250px;
-    background:#00d4ff;
-    bottom:10%;
-    left:40%;
-}
+            .blob3 {
+                width: 250px;
+                height: 250px;
+                background: #00d4ff;
+                bottom: 10%;
+                left: 40%;
+            }
 
-@keyframes float{
-    50%{
-        transform:translateY(-30px);
-    }
-}
+            @keyframes float {
+                50% {
+                    transform: translateY(-30px);
+                }
+            }
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:25px 8%;
-}
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 25px 8%;
+            }
 
-.logo{
-    font-size:1.4rem;
-    font-weight:700;
-}
+            .logo {
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
 
-.hero{
-    min-height:85vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-}
+            .hero {
+                min-height: 85vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 20px;
+            }
 
-.hero h1{
-    font-size:4.5rem;
-    max-width:900px;
-    line-height:1.1;
-}
+            .hero h1 {
+                font-size: 4.5rem;
+                max-width: 900px;
+                line-height: 1.1;
+            }
 
-.gradient{
-    background:linear-gradient(90deg,#ff4ecd,#7c3aed,#00d4ff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+            .gradient {
+                background: linear-gradient(90deg, #ff4ecd, #7c3aed, #00d4ff);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
 
-.hero p{
-    margin-top:25px;
-    max-width:650px;
-    color:#cbd5e1;
-    font-size:1.1rem;
-}
+            .hero p {
+                margin-top: 25px;
+                max-width: 650px;
+                color: #cbd5e1;
+                font-size: 1.1rem;
+            }
 
-.buttons{
-    margin-top:35px;
-}
+            .buttons {
+                margin-top: 35px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
 
-.btn{
-    padding:15px 35px;
-    border:none;
-    border-radius:50px;
-    font-weight:600;
-    cursor:pointer;
-    margin:8px;
-}
+            .btn {
+                padding: 15px 35px;
+                border: none;
+                border-radius: 50px;
+                font-weight: 600;
+                cursor: pointer;
+                margin: 8px;
+            }
 
-.primary{
-    background:linear-gradient(90deg,#ff4ecd,#7c3aed);
-    color:white;
-}
+            .secondary {
+                background: rgba(255, 255, 255, 0.08);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.15);
+            }
 
-.secondary{
-    background:rgba(255,255,255,.08);
-    color:white;
-    border:1px solid rgba(255,255,255,.15);
-}
+            .stats {
+                margin-top: 50px;
+                display: flex;
+                gap: 25px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-.stats{
-    margin-top:50px;
-    display:flex;
-    gap:25px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
+            .stat {
+                background: rgba(255, 255, 255, 0.06);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 20px 30px;
+                border-radius: 20px;
+            }
 
-.stat{
-    background:rgba(255,255,255,.06);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.08);
-    padding:20px 30px;
-    border-radius:20px;
-}
+            .features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 25px;
+                padding: 80px 8%;
+            }
 
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    padding:80px 8%;
-}
+            .card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(15px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 30px;
+                border-radius: 24px;
+                transition: 0.3s;
+            }
 
-.card{
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.08);
-    padding:30px;
-    border-radius:24px;
-    transition:.3s;
-}
+            .card:hover {
+                transform: translateY(-8px);
+            }
 
-.card:hover{
-    transform:translateY(-8px);
-}
+            .card h3 {
+                margin-bottom: 12px;
+            }
 
-.card h3{
-    margin-bottom:12px;
-}
+            footer {
+                text-align: center;
+                padding: 40px;
+                color: #94a3b8;
+            }
 
-.waitlist{
-    text-align:center;
-    padding:100px 20px;
-}
+            .status {
+                margin-top: 15px;
+                font-weight: 600;
+            }
+        </style>
+    </head>
 
-.waitlist input{
-    width:320px;
-    max-width:90%;
-    padding:15px;
-    border:none;
-    border-radius:12px;
-    margin-top:20px;
-}
+    <body>
+        <div class="bg">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="blob blob3"></div>
+        </div>
 
-.waitlist button{
-    margin-top:15px;
-    padding:15px 35px;
-    border:none;
-    border-radius:12px;
-    background:linear-gradient(90deg,#ff4ecd,#7c3aed);
-    color:white;
-    font-weight:600;
-}
+        <nav>
+            <div class="logo">❤️ IILM Connect</div>
+        </nav>
 
-footer{
-    text-align:center;
-    padding:40px;
-    color:#94a3b8;
-}
-</style>
-</head>
+        <section class="hero">
+            <h1>
+                Meet Amazing People Inside Your
+                <span class="gradient">Campus</span>
+            </h1>
 
-<body>
+            <p>
+                A private social network exclusively for IILM students. Make
+                friends, find study partners, and discover meaningful
+                connections.
+            </p>
 
-<div class="bg">
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
-</div>
+            <div class="buttons">
+                <div
+                    id="g_id_onload"
+                    data-client_id="825992834309-gsctbad0f5c6jss0j4fue3qjaohm8nvr.apps.googleusercontent.com"
+                    data-callback="handleCredentialResponse"
+                ></div>
 
-<nav>
-<div class="logo">❤️ IILM Connect</div>
-</nav>
+                <div
+                    class="g_id_signin"
+                    data-type="standard"
+                    data-shape="pill"
+                    data-theme="filled_black"
+                    data-size="large"
+                    data-text="continue_with"
+                ></div>
 
-<section class="hero">
+                <button
+                    class="btn secondary"
+                    onclick="
+                        document
+                            .getElementById('features')
+                            .scrollIntoView({ behavior: 'smooth' })
+                    "
+                >
+                    Learn More
+                </button>
 
-<h1>
-Meet Amazing People
-Inside Your
-<span class="gradient">Campus</span>
-</h1>
+                <div id="status" class="status"></div>
+            </div>
 
-<p>
-A private social network exclusively for IILM students.
-Make friends, find study partners, and discover meaningful connections.
-</p>
+            <div class="stats">
+                <div class="stat">
+                    <h2>500+</h2>
+                    <p>Interested Students</p>
+                </div>
 
-<div class="buttons">
-<button class="btn primary">Join Waitlist</button>
-<button class="btn secondary">Learn More</button>
-</div>
+                <div class="stat">
+                    <h2>100%</h2>
+                    <p>Verified Campus Users</p>
+                </div>
 
-<div class="stats">
-<div class="stat">
-<h2>500+</h2>
-<p>Interested Students</p>
-</div>
+                <div class="stat">
+                    <h2>24/7</h2>
+                    <p>Private Community</p>
+                </div>
+            </div>
+        </section>
 
-<div class="stat">
-<h2>100%</h2>
-<p>Verified Campus Users</p>
-</div>
+        <section class="features" id="features">
+            <div class="card">
+                <h3>🎓 Verified Students</h3>
+                <p>Only genuine IILM students get access.</p>
+            </div>
 
-<div class="stat">
-<h2>24/7</h2>
-<p>Private Community</p>
-</div>
-</div>
+            <div class="card">
+                <h3>💬 Campus Networking</h3>
+                <p>Meet students from different branches and years.</p>
+            </div>
 
-</section>
+            <div class="card">
+                <h3>❤️ Smart Matching</h3>
+                <p>Find people with similar interests and vibes.</p>
+            </div>
 
-<section class="features">
+            <div class="card">
+                <h3>🔒 Privacy First</h3>
+                <p>Your profile stays safe and secure.</p>
+            </div>
+        </section>
 
-<div class="card">
-<h3>🎓 Verified Students</h3>
-<p>Only genuine IILM students get access.</p>
-</div>
+        <footer>Built with ❤️ for IILM Students</footer>
 
-<div class="card">
-<h3>💬 Campus Networking</h3>
-<p>Meet students from different branches and years.</p>
-</div>
+        <script
+            src="https://accounts.google.com/gsi/client"
+            async
+            defer
+        ></script>
 
-<div class="card">
-<h3>❤️ Smart Matching</h3>
-<p>Find people with similar interests and vibes.</p>
-</div>
+        <script>
+            const APPS_SCRIPT_URL =
+                "https://script.google.com/macros/s/AKfycbyi3LezXP7nOtY-f0eqZR7yfUwx8Ti-53BTl5aLaqJ9B47672P7hEv_kJZguCSwmH__/exec";
 
-<div class="card">
-<h3>🔒 Privacy First</h3>
-<p>Your profile stays safe and secure.</p>
-</div>
+            function parseJwt(token) {
+                const base64Url = token.split(".")[1];
+                const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
 
-</section>
+                return JSON.parse(
+                    decodeURIComponent(
+                        atob(base64)
+                            .split("")
+                            .map(function (c) {
+                                return (
+                                    "%" +
+                                    ("00" + c.charCodeAt(0).toString(16)).slice(
+                                        -2,
+                                    )
+                                );
+                            })
+                            .join(""),
+                    ),
+                );
+            }
 
-<section class="waitlist">
+            async function handleCredentialResponse(response) {
+                const status = document.getElementById("status");
 
-<h2>🚀 Launching Soon</h2>
-<p>Join the first batch of early users.</p>
+                const user = parseJwt(response.credential);
 
-<input type="email" placeholder="Enter your email">
-<br>
-<button>Reserve My Spot</button>
+                if (!user.email.endsWith("@iilm.edu")) {
+                    status.innerHTML =
+                        "❌ Only @iilm.edu accounts are allowed.";
 
-</section>
+                    return;
+                }
 
-<footer>
-Built with ❤️ for IILM Students
-</footer>
+                status.innerHTML = "⏳ Joining waitlist...";
 
-</body>
+                try {
+                    await fetch(APPS_SCRIPT_URL, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            name: user.name,
+                            email: user.email,
+                            photo: user.picture,
+                            timestamp: new Date().toISOString(),
+                        }),
+                    });
+
+                    status.innerHTML =
+                        "🎉 Successfully joined the IILM Connect waitlist!";
+                } catch (error) {
+                    console.error(error);
+
+                    status.innerHTML =
+                        "❌ Something went wrong. Please try again.";
+                }
+            }
+        </script>
+    </body>
 </html>
 ```
