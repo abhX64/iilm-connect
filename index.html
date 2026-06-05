@@ -329,7 +329,9 @@
         name: user.name,
         email: user.email,
         photo: user.picture,
-        timestamp: new Date().toISOString(),
+        timestamp: new Date().toLocaleString("en-IN", {
+  timeZone: "Asia/Kolkata"
+}),
     }),
 });
 
