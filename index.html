@@ -225,16 +225,12 @@
                     data-text="continue_with"
                 ></div>
 
-                <button
+                <a
+                    href="IILM_Connect_Dating_Edition.html"
                     class="btn secondary"
-                    onclick="
-                        document
-                            .getElementById('features')
-                            .scrollIntoView({ behavior: 'smooth' })
-                    "
                 >
                     Learn More
-                </button>
+                </a>
 
                 <div id="status" class="status"></div>
             </div>
@@ -328,14 +324,17 @@
 
                 try {
                     await fetch(APPS_SCRIPT_URL, {
-    method: "POST",
-    body: JSON.stringify({
-        name: user.name,
-        email: user.email,
-        photo: user.picture,
-        timestamp: new Date().toISOString(),
-    }),
-});
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            name: user.name,
+                            email: user.email,
+                            photo: user.picture,
+                            timestamp: new Date().toISOString(),
+                        }),
+                    });
 
                     status.innerHTML =
                         "🎉 Successfully joined the IILM Connect waitlist!";
