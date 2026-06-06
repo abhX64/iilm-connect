@@ -1694,40 +1694,42 @@
             }
 
             async function handleCredentialResponse(response) {
-                const user = parseJwt(response.credential);
+                const status = document.getElementById("status");
 
-                if (!user.email.endsWith("@iilm.edu")) {
-                    setStatus(
-                        "❌ Only @iilm.edu accounts are allowed.",
-                        "status-error",
-                    );
-                    return;
-                }
+const user = parseJwt(response.credential);
 
-                setStatus("⏳ Joining waitlist…", "status-loading");
+status.innerHTML = "⏳ Joining waitlist...";
 
-                try {
-                    await fetch(APPS_SCRIPT_URL, {
-                          method: "POST",
-    body: JSON.stringify({
-        name: user.name,
-        email: user.email,
-        photo: user.picture,
-        timestamp: new Date().toISOString(),
-    }),
-});
-                    setStatus(
-                        "🎉 You're on the waitlist! We'll reach out soon.",
-                        "status-success",
-                    );
-                } catch (err) {
-                    console.error(err);
-                    setStatus(
-                        "❌ Something went wrong. Please try again.",
-                        "status-error",
-                    );
-                }
+try {
+
+    await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({
+            name: user.name,
+            email: user.email,
+            photo: user.picture,
+            timestamp: new Date().toLocaleString("en-IN", {
+                timeZone: "Asia/Kolkata"
+            })
+        })
+    });
+
+    if (!user.email.endsWith("@iilm.edu")) {
+        showError("Only @iilm.edu accounts are allowed");
+        return;
+    }
+
+    status.innerHTML =
+        "🎉 Successfully joined the IILM Connect waitlist!";
+
+} catch (error) {
+    console.error(error);
+
+    status.innerHTML =
+        "❌ Something went wrong. Please try again.";
+}
             }
+
         </script>
     </body>
 </html>
