@@ -311,38 +311,38 @@
             async function handleCredentialResponse(response) {
                 const status = document.getElementById("status");
 
-                const user = parseJwt(response.credential);
+const user = parseJwt(response.credential);
 
-                if (!user.email.endsWith("@iilm.edu")) {
-                    status.innerHTML =
-                        "❌ Only @iilm.edu accounts are allowed.";
+status.innerHTML = "⏳ Joining waitlist...";
 
-                    return;
-                }
+try {
 
-                status.innerHTML = "⏳ Joining waitlist...";
+    await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({
+            name: user.name,
+            email: user.email,
+            photo: user.picture,
+            timestamp: new Date().toLocaleString("en-IN", {
+                timeZone: "Asia/Kolkata"
+            })
+        })
+    });
 
-                try {
-                    await fetch(APPS_SCRIPT_URL, {
-                          method: "POST",
-    body: JSON.stringify({
-        name: user.name,
-        email: user.email,
-        photo: user.picture,
-        timestamp: new Date().toLocaleString("en-IN", {
-  timeZone: "Asia/Kolkata"
-}),
-    }),
-});
+    if (!user.email.endsWith("@iilm.edu")) {
+        showError("Only @iilm.edu accounts are allowed");
+        return;
+    }
 
-                    status.innerHTML =
-                        "🎉 Successfully joined the IILM Connect waitlist!";
-                } catch (error) {
-                    console.error(error);
+    status.innerHTML =
+        "🎉 Successfully joined the IILM Connect waitlist!";
 
-                    status.innerHTML =
-                        "❌ Something went wrong. Please try again.";
-                }
+} catch (error) {
+    console.error(error);
+
+    status.innerHTML =
+        "❌ Something went wrong. Please try again.";
+}
             }
         </script>
     </body>
